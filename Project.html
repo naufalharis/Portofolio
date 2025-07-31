@@ -20,6 +20,7 @@
             --light: #F9FAFB;
             --accent: #F59E0B;
             --gray: #D1D5DB;
+            --accent: #F59E0B;
             --accent-color: #F59E0B;
         }
 
@@ -55,6 +56,10 @@
 
         .navbar-brand:hover {
             transform: scale(1.05);
+        }
+        .navbar-brand span {
+            color: var(--accent);
+            transition: color 0.3s ease;
         }
 
         .nav-link {
@@ -466,6 +471,12 @@
         }
 
         @media (max-width: 576px) {
+            .container a{
+                margin-left: 20px;
+            }
+            .container button{
+                margin-right: 20px;
+            }
             .navbar-brand {
                 font-size: 1.2rem;
             }
@@ -492,7 +503,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Naufal Haris</a>
+                <a class="navbar-brand" href="#">Naufal<span>Haris</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -502,13 +513,13 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link active" href="Project.html">Project</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="sertificate.html">Certificate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="qlass.html">Class</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="Project.html">Project</a>
                         </li>
                     </ul>
                 </div>
@@ -550,7 +561,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Project 2 -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="project-card" data-toggle="modal" data-target="#projectModal2">
@@ -630,7 +641,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Project 6 -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="project-card" data-toggle="modal" data-target="#projectModal6">
@@ -650,9 +661,27 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card" data-toggle="modal" data-target="#projectModal7">
+                    <div class="project-img-container">
+                        <img src="Project/AbsensiApp.png" alt="Absensi App" class="project-img">
+                    </div>
+                    <div class="project-body">
+                        <span class="project-issuer">SMK Wikrama Bogor</span>
+                        <h3 class="project-title">Absensi App</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Vue</span>
+                            <span class="tech-badge">Pinia</span>
+                            <span class="tech-badge">Supabase</span>
+                        </div>
+                        <p class="project-text"> A smart attendance web app for schools, developed with Vue, Pinia, and Supabase. It allows students to check in easily, stores data in real-time, and helps staff monitor attendance efficiently.</p>
+                        <button class="project-btn">View Details <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
+    
     <!-- Project Modals -->
     <!-- Modal 1 -->
     <div class="modal fade project-modal" id="projectModal1" tabindex="-1" role="dialog" aria-labelledby="projectModal1Label" aria-hidden="true">
@@ -896,13 +925,54 @@
         </div>
     </div>
 
+    <!-- Modal 6 -->
+<div class="modal fade project-modal" id="projectModal7" tabindex="-1" role="dialog" aria-labelledby="projectModal6Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="projectModal6Label">Absensi App</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="Project/AbsensiApp.png" alt="Absensi App" class="img-fluid rounded mb-3">
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Project Details</h5>
+                        <p>Smart school attendance system with the following features:</p>
+                        <ul>
+                            <li>Student check-in and check-out with timestamps</li>
+                            <li>Real-time data storage and updates via Supabase</li>
+                            <li>Admin dashboard to monitor daily attendance</li>
+                            <li>Role-based access for students and staff</li>
+                            <li>Clean UI built with Vue and state management using Pinia</li>
+                        </ul>
+                        <div class="project-tech mb-3">
+                            <span class="tech-badge">Vue</span>
+                            <span class="tech-badge">Pinia</span>
+                            <span class="tech-badge">Supabase</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
             <div class="social-icons">
                 <a href="https://wa.me/085871424217" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/_naufalharis/" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:youremail@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:naufalharis1012@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/naufalharis" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
             <p class="copyright">© 2024 Muhammad Naufal Haris. All rights reserved.</p>

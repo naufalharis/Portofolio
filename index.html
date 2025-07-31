@@ -20,6 +20,7 @@
             --dark-color: #1F2937;
             --light-color: #F9FAFB;
             --accent-color: #F59E0B;
+            --accent: #F59E0B;
         }
 
         body {
@@ -49,6 +50,10 @@
             font-size: 1.5rem;
             color: var(--light-color) !important;
             transition: transform 0.3s ease;
+        }
+        .navbar-brand span {
+            color: var(--accent);
+            transition: color 0.3s ease;
         }
 
         .navbar-brand:hover {
@@ -110,14 +115,15 @@
         }
 
         .profile-img {
-            width: 220px;
-            height: 220px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: float 6s ease-in-out infinite;
+            cursor: pointer;
         }
 
         @keyframes float {
@@ -152,7 +158,7 @@
             font-weight: 600;
             color: var(--accent-color);
             display: inline-block;
-            min-height: 1.5em; /* Prevents layout shift during typing */
+            min-height: 1.5em;
         }
 
         .typewriter-cursor {
@@ -302,21 +308,195 @@
             opacity: 1;
         }
 
-        /* Responsive Adjustments */
+        /* Enhanced Image Modal Styles */
+        .image-modal .modal-dialog {
+            max-width: 95%;
+            max-height: 95vh;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .image-modal .modal-content {
+            background: transparent;
+            border: none;
+            width: 100%;
+        }
+
+        .image-modal .modal-body {
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .image-modal img {
+            max-height: 80vh;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+            margin: 0 auto;
+            display: block;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+        }
+
+        .image-modal .close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            opacity: 0.9;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            font-size: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .image-modal .close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Mobile-specific styles */
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1.25rem;
-            }
-            .hero-section {
-                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            .image-modal .modal-dialog {
+                max-width: 100%;
+                padding: 5px;
+                margin: 0;
             }
             
+            .image-modal img {
+                max-height: 90vh;
+                width: 100%;
+                border-radius: 0;
+            }
+            
+            .image-modal .close {
+                top: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+                font-size: 1.5rem;
+            }
+            
+            /* Full-screen touch experience */
+            .image-modal .modal-content {
+                height: 100vh;
+            }
+            
+            .image-modal .modal-body {
+                height: calc(100vh - 20px);
+            }
+
+            /* Adjust profile image size */
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            /* Adjust hero section */
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container a{
+                margin-left: 20px;
+            }
+            .container button{
+                margin-right: 20px;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
             .btn-custom {
-                padding: 0.6rem 1.5rem;
+                padding: 0.6rem 1.25rem;
                 font-size: 0.9rem;
+            }
+        }
+
+        /* Touch-friendly zoom controls for mobile */
+        .image-modal .zoom-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            border-radius: 30px;
+        }
+        
+        .image-modal .zoom-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+        }
+
+        .image-modal .zoom-btn:active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0.95);
+        }
+        
+        @media (min-width: 769px) {
+            .image-modal .zoom-controls {
+                display: none;
+            }
+        }
+
+        /* Draggable image on mobile */
+        .image-modal .modal-body {
+            touch-action: none;
+            overflow: hidden;
+        }
+
+        /* Status bar color for mobile */
+        @media (max-width: 768px) {
+            .image-modal {
+                background-color: rgba(0, 0, 0, 0.95);
             }
         }
     </style>
@@ -326,7 +506,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Naufal Haris</a>
+                <a class="navbar-brand" href="#">Naufal<span>Haris</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -336,13 +516,13 @@
                             <a class="nav-link active" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="Project.html">Project</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="sertificate.html">Certificate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="qlass.html">Class</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Project.html">Project</a>
                         </li>
                     </ul>
                 </div>
@@ -353,7 +533,7 @@
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center mt-4">
         <div class="container text-center">
-            <img src="Nopalll.jpeg" alt="Muhammad Naufal Haris" class="profile-img mb-4 animate__animated animate__fadeIn">
+            <img src="Nopalll.jpeg" alt="Muhammad Naufal Haris" class="profile-img mb-4 animate__animated animate__fadeIn" data-toggle="modal" data-target="#imageModal" data-img="Nopalll.jpeg">
             <h6 class="text-uppercase mb-3 animate__animated animate__fadeIn animate__delay-1s" style="letter-spacing: 3px; color: rgba(255, 255, 255, 0.8);">Hello, I'm</h6>
             <h1 class="hero-title">Muhammad Naufal Haris</h1>
             <h3 class="hero-subtitle">Wikrama Student | 101207</h3>
@@ -369,13 +549,32 @@
         </div>
     </section>
 
+    <!-- Enhanced Image Modal -->
+    <div class="modal fade image-modal" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <img id="modalImage" src="" alt="Enlarged view" class="img-fluid">
+                    <div class="zoom-controls">
+                        <button class="zoom-btn zoom-in"><i class="fas fa-search-plus"></i></button>
+                        <button class="zoom-btn zoom-out"><i class="fas fa-search-minus"></i></button>
+                        <button class="zoom-btn zoom-reset"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="text-center">
         <div class="container">
             <div class="social-icons mb-4">
                 <a href="https://wa.me/085871424217"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/_naufalharis/"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:naufalharis1012@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
             <p class="copyright mb-2">© 2024 Muhammad Naufal Haris. All rights reserved.</p>
             <p class="mb-0">Thank you for visiting my portfolio!</p>
@@ -383,7 +582,7 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JS -->
@@ -483,9 +682,146 @@
             });
         });
 
-        // Page load animation
-        document.body.style.opacity = '0';
-        window.addEventListener('DOMContentLoaded', () => {
+        // Enhanced Image Modal functionality with mobile support
+        $(document).ready(function() {
+            let currentScale = 1;
+            let posX = 0, posY = 0;
+            let startX, startY;
+            const modalImage = $('#modalImage');
+            const modalBody = $('.image-modal .modal-body');
+            let isDragging = false;
+            
+            // Initialize modal
+            $('#imageModal').on('show.bs.modal', function (event) {
+                const button = $(event.relatedTarget);
+                const imgSrc = button.data('img');
+                modalImage.attr('src', imgSrc);
+                currentScale = 1;
+                posX = 0;
+                posY = 0;
+                updateImageTransform();
+            });
+
+            // Reset when modal closes
+            $('#imageModal').on('hidden.bs.modal', function () {
+                currentScale = 1;
+                posX = 0;
+                posY = 0;
+                updateImageTransform();
+            });
+
+            // Mobile zoom controls
+            $('.zoom-in').on('click', function() {
+                currentScale = Math.min(3, currentScale + 0.2);
+                updateImageTransform();
+            });
+
+            $('.zoom-out').on('click', function() {
+                currentScale = Math.max(0.5, currentScale - 0.2);
+                updateImageTransform();
+            });
+
+            $('.zoom-reset').on('click', function() {
+                currentScale = 1;
+                posX = 0;
+                posY = 0;
+                updateImageTransform();
+            });
+
+            // Update image transform
+            function updateImageTransform() {
+                modalImage.css('transform', `translate(${posX}px, ${posY}px) scale(${currentScale})`);
+            }
+
+            // Touch pinch zoom for mobile
+            let initialDistance = null;
+            
+            modalBody.on('touchstart', function(e) {
+                if (e.touches.length === 2) {
+                    // Pinch zoom
+                    initialDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                } else if (currentScale > 1) {
+                    // Start drag
+                    isDragging = true;
+                    startX = e.touches[0].clientX - posX;
+                    startY = e.touches[0].clientY - posY;
+                }
+            });
+
+            modalBody.on('touchmove', function(e) {
+                if (e.touches.length === 2 && initialDistance !== null) {
+                    // Pinch zoom
+                    e.preventDefault();
+                    const currentDistance = Math.hypot(
+                        e.touches[0].clientX - e.touches[1].clientX,
+                        e.touches[0].clientY - e.touches[1].clientY
+                    );
+                    
+                    const scale = currentDistance / initialDistance;
+                    currentScale = Math.max(0.5, Math.min(3, scale));
+                    updateImageTransform();
+                } else if (isDragging && currentScale > 1) {
+                    // Drag move
+                    e.preventDefault();
+                    posX = e.touches[0].clientX - startX;
+                    posY = e.touches[0].clientY - startY;
+                    updateImageTransform();
+                }
+            });
+
+            modalBody.on('touchend', function() {
+                initialDistance = null;
+                isDragging = false;
+                
+                // Boundary checks
+                const imgWidth = modalImage.width() * currentScale;
+                const imgHeight = modalImage.height() * currentScale;
+                const bodyWidth = modalBody.width();
+                const bodyHeight = modalBody.height();
+                
+                if (imgWidth > bodyWidth) {
+                    const maxX = (imgWidth - bodyWidth) / 2;
+                    posX = Math.max(-maxX, Math.min(maxX, posX));
+                } else {
+                    posX = 0;
+                }
+                
+                if (imgHeight > bodyHeight) {
+                    const maxY = (imgHeight - bodyHeight) / 2;
+                    posY = Math.max(-maxY, Math.min(maxY, posY));
+                } else {
+                    posY = 0;
+                }
+                
+                updateImageTransform();
+            });
+
+            // Double tap zoom for mobile
+            let lastTap = 0;
+            modalImage.on('touchend', function(e) {
+                const now = Date.now();
+                const timesince = now - lastTap;
+                
+                if (timesince < 300 && timesince > 0) {
+                    // Double tap detected
+                    if (currentScale === 1) {
+                        currentScale = 2;
+                    } else {
+                        currentScale = 1;
+                        posX = 0;
+                        posY = 0;
+                    }
+                    updateImageTransform();
+                    e.preventDefault();
+                }
+                lastTap = now;
+            });
+
+            // Page load animation
+            document.body.style.opacity = '0';
             setTimeout(() => {
                 document.body.style.transition = 'opacity 0.5s ease';
                 document.body.style.opacity = '1';

@@ -52,6 +52,10 @@
             color: var(--light) !important;
             transition: transform 0.3s ease;
         }
+        .navbar-brand span {
+            color: var(--accent);
+            transition: color 0.3s ease;
+        }
 
         .navbar-brand:hover {
             transform: scale(1.05);
@@ -404,6 +408,12 @@
         }
 
         @media (max-width: 576px) {
+            .container a{
+                margin-left: 20px;
+            }
+            .container button{
+                margin-right: 20px;
+            }
             .navbar-brand {
                 font-size: 1.2rem;
             }
@@ -430,7 +440,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Naufal Haris</a>
+                <a class="navbar-brand" href="#">Naufal<span>Haris</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -440,13 +450,13 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="Project.html">Project</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link active" href="sertificate.html">Certificate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="qlass.html">Class</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Project.html">Project</a>
                         </li>
                     </ul>
                 </div>
@@ -688,7 +698,7 @@
             <div class="social-icons">
                 <a href="https://wa.me/085871424217" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/_naufalharis/" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:youremail@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:naufalharis1012@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/naufalharis" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
             <p class="copyright">© 2024 Muhammad Naufal Haris. All rights reserved.</p>

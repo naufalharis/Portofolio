@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
             --primary: #6D28D9;
@@ -38,7 +40,7 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 1.2rem 0;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
         .navbar.scrolled {
@@ -53,10 +55,20 @@
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .navbar-brand span {
             color: var(--accent);
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+
+        .navbar-brand:hover span {
+            color: var(--accent-dark);
         }
 
         .nav-link {
@@ -66,7 +78,7 @@
             margin: 0 0.5rem;
             position: relative;
             padding: 0.5rem 1rem !important;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
         .nav-link::after {
@@ -77,7 +89,7 @@
             bottom: 0;
             left: 0;
             background-color: var(--accent);
-            transition: width 0.3s ease;
+            transition: width 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
 
         .nav-link:hover::after,
@@ -87,6 +99,7 @@
 
         .nav-link:hover {
             color: var(--accent) !important;
+            transform: translateY(-2px);
         }
 
         .nav-link.active {
@@ -129,28 +142,45 @@
         .hero-title::after {
             content: '';
             position: absolute;
-            width: 50%;
+            width: 0;
             height: 3px;
             background: var(--accent);
             bottom: -10px;
             left: 25%;
             border-radius: 3px;
+            transition: width 0.6s ease 0.3s;
+        }
+
+        .hero-title.animate::after {
+            width: 50%;
         }
 
         .hero-subtitle {
             font-weight: 400;
             font-size: 1.3rem;
-            opacity: 0.9;
+            opacity: 0;
+            transform: translateY(20px);
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 1.5rem;
+            transition: all 0.6s ease 0.2s;
+        }
+
+        .hero-subtitle.animate {
+            opacity: 0.9;
+            transform: translateY(0);
         }
 
         .divider {
-            width: 80px;
+            width: 0;
             height: 4px;
             background-color: var(--accent);
             margin: 1.5rem auto;
             border-radius: 2px;
+            transition: width 0.6s ease 0.4s;
+        }
+
+        .divider.animate {
+            width: 80px;
         }
 
         /* Section Heading */
@@ -158,6 +188,14 @@
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section-heading.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-heading h2 {
@@ -181,17 +219,6 @@
             position: relative;
         }
 
-        .class-gallery::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M1200 0L0 0 0 120 1200 0z' fill='%236D28D9'%3E%3C/path%3E%3C/svg%3E") no-repeat;
-            background-size: cover;
-        }
-
         .class-card {
             position: relative;
             border-radius: 12px;
@@ -199,21 +226,26 @@
             margin-bottom: 2rem;
             height: 420px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .class-card.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .class-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) !important;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: var(--accent);
         }
 
         .class-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .class-card:hover .class-img {
@@ -241,7 +273,7 @@
             background: linear-gradient(to top, var(--primary), transparent);
             opacity: 0.3;
             z-index: -1;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
 
         .class-card:hover .class-overlay::before {
@@ -254,6 +286,14 @@
             margin-bottom: 0.5rem;
             font-family: 'Playfair Display', serif;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.2s;
+        }
+
+        .class-card.animate .class-title {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .class-year {
@@ -267,13 +307,98 @@
             padding: 0.2rem 0.8rem;
             border-radius: 20px;
             border: 1px solid var(--accent);
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.4s ease 0.1s;
         }
 
-        .class-description {
+        .class-card.animate .class-year {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .read-more-btn {
+            background: var(--accent);
+            color: var(--darker);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
             margin-top: 1rem;
-            font-size: 1rem;
-            opacity: 0.9;
-            line-height: 1.7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.3s;
+        }
+
+        .class-card.animate .read-more-btn {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .read-more-btn:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 12px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Modal Styles */
+        .class-modal .modal-content {
+            background-color: var(--darker);
+            color: var(--light);
+            border-radius: 12px;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .class-modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .class-modal .modal-header {
+            border-bottom: 1px solid var(--accent-dark);
+        }
+
+        .class-modal .modal-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+        }
+
+        .class-modal .close {
+            color: var(--light);
+            text-shadow: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .class-modal .close:hover {
+            color: var(--accent);
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        .class-modal .modal-body {
+            line-height: 1.8;
+        }
+
+        .class-modal-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease 0.2s;
+        }
+
+        .class-modal.show .class-modal-img {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         /* Footer */
@@ -281,6 +406,14 @@
             background-color: var(--darker);
             padding: 4rem 0 2rem;
             position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        footer.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         footer::before {
@@ -309,27 +442,22 @@
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--light);
             margin: 0 0.7rem;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            position: relative;
-            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: scale(0);
         }
 
-        .social-icons a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            top: 100%;
-            left: 0;
-            transition: top 0.3s ease;
-            z-index: -1;
+        footer.animate .social-icons a {
+            transform: scale(1);
         }
+
+        .social-icons a:nth-child(1) { transition-delay: 0.1s; }
+        .social-icons a:nth-child(2) { transition-delay: 0.2s; }
+        .social-icons a:nth-child(3) { transition-delay: 0.3s; }
+        .social-icons a:nth-child(4) { transition-delay: 0.4s; }
 
         .social-icons a:hover {
             color: var(--light);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.1) !important;
             box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
         }
 
@@ -338,21 +466,32 @@
         }
 
         .copyright {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease 0.3s;
+        }
+
+        footer.animate .copyright {
             opacity: 0.7;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: var(--gray);
+            transform: translateY(0);
         }
 
         .quote {
             font-style: italic;
-            opacity: 0.8;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease 0.4s;
             font-size: 1rem;
             max-width: 600px;
             margin: 0 auto;
             color: var(--gray);
             position: relative;
             padding: 0 2rem;
+        }
+
+        footer.animate .quote {
+            opacity: 0.8;
+            transform: translateY(0);
         }
 
         .quote::before,
@@ -391,43 +530,21 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             z-index: 999;
             box-shadow: 0 5px 15px rgba(109, 40, 217, 0.3);
+            transform: translateY(20px);
         }
 
         .back-to-top.active {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
         .back-to-top:hover {
             background: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
+            transform: translateY(-3px) scale(1.1) !important;
         }
 
         /* Responsive Adjustments */
@@ -459,6 +576,19 @@
         }
 
         @media (max-width: 576px) {
+            .section-heading {
+                text-align: left;
+            }
+            .section-heading p{
+                text-align: left;
+                font-size: 14px;
+            }
+            .container a{
+                margin-left: 20px;
+            }
+            .container button{
+                margin-right: 20px;
+            }
             .navbar-brand {
                 font-size: 1.3rem;
             }
@@ -482,6 +612,19 @@
                 height: 40px;
                 margin: 0 0.5rem;
             }
+            .class-year {
+                font-size: 0.9rem;
+                padding: 0.15rem 0.6rem;
+                margin-bottom: 0.3rem;
+            }
+            .read-more-btn {
+                padding: 0.3rem 1rem;
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
+            }
+            .class-overlay {
+                padding: 1.5rem 1rem;
+            }
         }
     </style>
 </head>
@@ -490,7 +633,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Naufal<span>Haris</span></a>
+                <a class="navbar-brand" href="#">Naufal <span>Haris</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -500,13 +643,13 @@
                             <a class="nav-link" href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="Project.html">Project</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="sertificate.html">Certificate</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" href="qlass.html">Class</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Project.html">Project</a>
                         </li>
                     </ul>
                 </div>
@@ -517,42 +660,142 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <p class="hero-subtitle animate">SMK Wikrama Bogor</p>
-            <h1 class="hero-title animate delay-1">My Classes</h1>
-            <div class="divider animate delay-1"></div>
-            <p class="mb-0 animate delay-2">Journey through my academic years</p>
+            <p class="hero-subtitle">SMK Wikrama Bogor</p>
+            <h1 class="hero-title">My Classes</h1>
+            <div class="divider"></div>
+            <p class="mb-0">Journey through my academic years</p>
         </div>
     </section>
 
     <!-- Class Gallery Section -->
     <section class="class-gallery">
         <div class="container">
-            <div class="section-heading animate">
+            <div class="section-heading">
                 <h2>Academic Journey</h2>
                 <p>Explore my classes throughout the years at SMK Wikrama Bogor</p>
             </div>
             
             <div class="row">
                 <!-- Class 1 -->
-                <div class="col-lg-6 mb-4 animate delay-1">
+                <div class="col-lg-6 mb-4">
                     <div class="class-card">
                         <img src="pplgx3.jpeg" alt="PPLG X 3 Class Photo" class="class-img">
                         <div class="class-overlay">
                             <h2 class="class-title">PPLG X-3</h2>
                             <div class="class-year">2023-2024</div>
-                            <p class="class-description">My first year in Software and Game Development program at SMK Wikrama Bogor, where I began my journey in programming and web development, learning the fundamentals that would shape my technical skills.</p>
+                            <button class="read-more-btn" data-toggle="modal" data-target="#classModal1">Read More</button>
                         </div>
                     </div>
                 </div>
 
+                <!-- Modal for Class 1 -->
+                <div class="modal fade class-modal" id="classModal1" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">PPLG X-3 (2023-2024)</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="pplgx3.jpeg" alt="PPLG X 3 Class Photo" class="class-modal-img">
+                                <p>My first year in Software and Game Development program at SMK Wikrama Bogor, where I began my journey in programming and web development, learning the fundamentals that would shape my technical skills.</p>
+                                <p>During this year, I was introduced to HTML, CSS, JavaScript, and basic programming concepts. The supportive environment and dedicated teachers helped me build a strong foundation for my future studies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Class 2 -->
-                <div class="col-lg-6 mb-4 animate delay-2">
+                <div class="col-lg-6 mb-4">
                     <div class="class-card">
                         <img src="pplgxi2.jpeg" alt="PPLG XI 2 Class Photo" class="class-img">
                         <div class="class-overlay">
                             <h2 class="class-title">PPLG XI-2</h2>
                             <div class="class-year">2024-2025</div>
-                            <p class="class-description">Advanced year focusing on deeper programming concepts, team projects, and specialization in web development frameworks. This year marked significant growth in my technical abilities and collaborative skills.</p>
+                            <button class="read-more-btn" data-toggle="modal" data-target="#classModal2">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Class 2 -->
+                <div class="modal fade class-modal" id="classModal2" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">PPLG XI-2 (2024-2025)</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="pplgxi2.jpeg" alt="PPLG XI 2 Class Photo" class="class-modal-img">
+                                <p>Advanced year focusing on deeper programming concepts, team projects, and specialization in web development frameworks. This year marked significant growth in my technical abilities and collaborative skills.</p>
+                                <p>We worked with frameworks like React and Laravel, built complete web applications, and learned about database management. The group projects helped me understand teamwork and project management in software development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 3 -->
+                <div class="col-lg-6 mb-4">
+                    <div class="class-card">
+                        <img src="pplgxii2.jpeg" alt="PPLG XII 2 Class Photo" class="class-img">
+                        <div class="class-overlay">
+                            <h2 class="class-title">PPLG XII-2</h2>
+                            <div class="class-year">2025-2026</div>
+                            <button class="read-more-btn" data-toggle="modal" data-target="#classModal3">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Class 3 -->
+                <div class="modal fade class-modal" id="classModal3" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">PPLG XII-2 (2025-2026)</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="pplgxii2.jpeg" alt="PPLG XII 2 Class Photo" class="class-modal-img">
+                                <p>This year, I pushed myself to learn more seriously. I explored deeper programming concepts and practices. Through my internship (PKL), I gained real-world experience. Now, I'm more confident and skilled in web development.</p>
+                                <p>The internship experience was particularly valuable, exposing me to real client projects, deadlines, and professional coding standards. I also worked on my final project, which combined all the skills I've learned throughout the program.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Class 4 -->
+                <div class="col-lg-6 mb-4">
+                    <div class="class-card">
+                        <img src="cisarua3.jpeg" alt="Rayon Cis-3 Photo" class="class-img">
+                        <div class="class-overlay">
+                            <h2 class="class-title">Rayon Cis-3</h2>
+                            <div class="class-year">2023-2024</div>
+                            <button class="read-more-btn" data-toggle="modal" data-target="#classModal4">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal for Class 4 -->
+                <div class="modal fade class-modal" id="classModal4" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Rayon Cis-3 (2023-2024)</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="cisarua3.jpeg" alt="Rayon Cis-3 Photo" class="class-modal-img">
+                                <p>This place is more than just where I learn. It's where I laugh, grow, and feel supported. Every moment shared builds a deeper bond. The people here feel like family to me. It's a second home I'll always remember.</p>
+                                <p>Our rayon activities included leadership training, community service, and team-building exercises. These experiences helped me develop not just academically, but also as a person with strong social and leadership skills.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -566,7 +809,7 @@
             <div class="social-icons">
                 <a href="https://wa.me/085871424217" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://www.instagram.com/_naufalharis/" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:youremail@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:naufalharis1012@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://github.com/naufalharis" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
             <p class="copyright">© 2024 Muhammad Naufal Haris. All rights reserved.</p>
@@ -622,13 +865,13 @@
         $(document).ready(function() {
             // Add animation class when element is in viewport
             function animateOnScroll() {
-                $('.animate').each(function() {
+                $('.hero-subtitle, .hero-title, .divider, .section-heading, .class-card, footer').each(function() {
                     var position = $(this).offset().top;
                     var scroll = $(window).scrollTop();
                     var windowHeight = $(window).height();
                     
-                    if (scroll + windowHeight > position) {
-                        $(this).addClass('animated');
+                    if (scroll + windowHeight - 100 > position) {
+                        $(this).addClass('animate');
                     }
                 });
             }
@@ -640,6 +883,24 @@
             $(window).scroll(function() {
                 animateOnScroll();
             });
+
+            // Modal show/hide animations
+            $('.class-modal').on('show.bs.modal', function () {
+                $(this).addClass('show');
+            });
+
+            $('.class-modal').on('hidden.bs.modal', function () {
+                $(this).removeClass('show');
+            });
+        });
+
+        // Page load animation
+        document.body.style.opacity = '0';
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
         });
     </script>
 </body>
