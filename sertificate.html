@@ -433,6 +433,56 @@
         .delay-4 { animation-delay: 0.8s !important; }
         .delay-5 { animation-delay: 1s !important; }
         .delay-6 { animation-delay: 1.2s !important; }
+
+        /* Certificate Group Section */
+        .cert-group-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .cert-group-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin: 0;
+            flex: 1;
+        }
+
+        .cert-item.hidden {
+            display: none;
+        }
+
+        .cert-group {
+            margin-bottom: 3rem;
+        }
+
+        .see-more-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 1.5rem;
+            display: inline-block;
+        }
+
+        .see-more-btn:hover {
+            background-color: #EAB308;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(245, 158, 11, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -477,270 +527,341 @@
     <!-- Certificates Section -->
     <section class="certificate-container">
         <div class="container">
-            <div class="row">
-                <!-- Certificate 1 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal1">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate DICODING.png" alt="Dicoding Web Programming Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Dicoding Indonesia</span>
-                            <h3 class="certificate-title">Belajar Dasar Pemrograman Web</h3>
-                            <p class="certificate-text">Mastered fundamentals of web development including HTML, CSS, and JavaScript. Learned to create responsive websites with modern layouts.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+            <!-- Dicoding Indonesia Group -->
+            <div class="cert-group">
+                <div class="cert-group-header">
+                    <h2 class="cert-group-title">Dicoding Indonesia</h2>
+                    <button class="see-more-btn" onclick="toggleGroup(this)">See More</button>
+                </div>
+                <div class="row">
+                    <!-- Certificate 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal1">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING.png" alt="Dicoding Web Programming Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Belajar Dasar Pemrograman Web</h3>
+                                <p class="certificate-text">Mastered fundamentals of web development including HTML, CSS, and JavaScript. Learned to create responsive websites with modern layouts.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certificate 2 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal2">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate DICODING 2.png" alt="Dicoding SOLID Principles Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Dicoding Indonesia</span>
-                            <h3 class="certificate-title">Belajar Prinsip Pemrograman SOLID</h3>
-                            <p class="certificate-text">Acquired knowledge of SOLID principles for writing clean, maintainable code. Learned object-oriented design patterns and best practices.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    <!-- Certificate 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal2">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 2.png" alt="Dicoding SOLID Principles Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Belajar Prinsip Pemrograman SOLID</h3>
+                                <p class="certificate-text">Acquired knowledge of SOLID principles for writing clean, maintainable code. Learned object-oriented design patterns and best practices.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certificate 3 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal3">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate CODEPOLITAN.png" alt="CodePolitan Git Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">CodePolitan</span>
-                            <h3 class="certificate-title">Belajar GIT untuk Pemula</h3>
-                            <p class="certificate-text">Learned version control fundamentals with Git. Mastered branching, merging, and collaboration workflows using GitHub repositories.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    <!-- Certificate 7 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal7">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 3.jpg" alt="Financial Literacy Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Introduction To Financial Literacy</h3>
+                                <p class="certificate-text">Learned the basics of financial literacy, covering budgeting, saving, and fundamental financial decision-making skills.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certificate 4 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal4">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate LDKS.jpeg" alt="LDKS Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Latihan Dasar Kepemimpinan Siswa</h3>
-                            <p class="certificate-text">Completed basic leadership training focusing on teamwork, communication, and organizational skills for student development.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    <!-- Certificate 9 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal9">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 4.jpg" alt="Dasar Pemrograman Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Dasar Pemrograman Menjadi Pengembang Software</h3>
+                                <p class="certificate-text">Mastered fundamental programming concepts essential for becoming a software developer. Covered algorithms, data structures, and programming paradigms.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certificate 5 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal5">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Unity.png" alt="Unity Essentials Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Unity Technologies</span>
-                            <h3 class="certificate-title">Unity Essentials Pathway</h3>
-                            <p class="certificate-text">Gained fundamental knowledge of Unity game engine. Learned to create 3D environments, implement game mechanics, and understand the development workflow.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    <!-- Certificate 10 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal10">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 5.jpg" alt="AWS Cloud Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Belajar Dasar Cloud dan Gen AI di AWS</h3>
+                                <p class="certificate-text">Learned fundamental concepts of cloud computing and AI services on AWS platform. Gained knowledge of cloud infrastructure and machine learning basics.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certificate 6 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal6">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate maulid.png" alt="Islamic Quiz Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Wikrama Islamic Club</span>
-                            <h3 class="certificate-title">Cerdas Cermat Islami</h3>
-                            <p class="certificate-text">Awarded for excellence in Islamic knowledge competition during Maulid Nabi celebration at SMK Wikrama Bogor.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal7">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate DICODING 3.jpg" alt="Islamic Quiz Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Dicoding Indonesia</span>
-                            <h3 class="certificate-title">Introduction To Financial Literacy</h3>
-                            <p class="certificate-text">Learned the basics of financial literacy, covering budgeting, saving, and fundamental financial decision-making skills.</p>                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    <!-- Certificate 11 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal11">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 6.jpg" alt="Programming Logic Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Logika Pemrograman (Programming Logic 101)</h3>
+                                <p class="certificate-text">Developed strong foundation in programming logic and problem-solving. Learned algorithmic thinking, flowcharts, and basic programming constructs.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certificate 8 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal8">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate PKL Robust.png" alt="PKL Certificate" class="certificate-img">
+                    <!-- Certificate 19 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal19">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 7.jpg" alt="Belajar Back-End Pemula dengan Javascript" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Belajar Back-End Pemula dengan Javascript</h3>
+                                <p class="certificate-text">Learned beginner backend development with JavaScript. Built API endpoints, managed data flow, and understood basic server-side logic.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Sertifikat Praktik Kerja Lapangan</h3>
-                            <p class="certificate-text">Completed internship program demonstrating practical skills in software development and professional work environment experience.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Certificate 20 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal20">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate DICODING 8.jpg" alt="Belajar Membuat Aplikasi Web dengan React" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Belajar Membuat Aplikasi Web dengan React</h3>
+                                <p class="certificate-text">Learned how to build web applications with React. Covered components, state, props, and building interactive responsive user interfaces.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Certificate 9 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal9">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate DICODING 4.jpg" alt="Dasar Pemrograman Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Dicoding Indonesia</span>
-                            <h3 class="certificate-title">Dasar Pemrograman Menjadi Pengembang Software</h3>
-                            <p class="certificate-text">Mastered fundamental programming concepts essential for becoming a software developer. Covered algorithms, data structures, and programming paradigms.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+            <!-- CodePolitan Group -->
+            <div class="cert-group">
+                <div class="cert-group-header">
+                    <h2 class="cert-group-title">CodePolitan</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal3">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate CODEPOLITAN.png" alt="CodePolitan Git Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">CodePolitan</span>
+                                <h3 class="certificate-title">Belajar GIT untuk Pemula</h3>
+                                <p class="certificate-text">Learned version control fundamentals with Git. Mastered branching, merging, and collaboration workflows using GitHub repositories.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Certificate 10 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal10">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate DICODING 5.jpg" alt="AWS Cloud Certificate" class="certificate-img">
+            <!-- SMK Wikrama Bogor Group -->
+            <div class="cert-group">
+                <div class="cert-group-header">
+                    <h2 class="cert-group-title">SMK Wikrama Bogor</h2>
+                </div>
+                <div class="row">
+                    <!-- Certificate 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal4">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate LDKS.jpeg" alt="LDKS Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">SMK Wikrama Bogor</span>
+                                <h3 class="certificate-title">Latihan Dasar Kepemimpinan Siswa</h3>
+                                <p class="certificate-text">Completed basic leadership training focusing on teamwork, communication, and organizational skills for student development.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">Amazon Web Services</span>
-                            <h3 class="certificate-title">Belajar Dasar Cloud dan Gen AI di AWS</h3>
-                            <p class="certificate-text">Learned fundamental concepts of cloud computing and AI services on AWS platform. Gained knowledge of cloud infrastructure and machine learning basics.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Certificate 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal6">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate maulid.png" alt="Islamic Quiz Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">SMK Wikrama Bogor</span>
+                                <h3 class="certificate-title">Cerdas Cermat Islami</h3>
+                                <p class="certificate-text">Awarded for excellence in Islamic knowledge competition during Maulid Nabi celebration at SMK Wikrama Bogor.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 8 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal8">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate PKL Robust.png" alt="PKL Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">SMK Wikrama Bogor</span>
+                                <h3 class="certificate-title">Sertifikat Praktik Kerja Lapangan</h3>
+                                <p class="certificate-text">Completed internship program demonstrating practical skills in software development and professional work environment experience.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Certificate 11 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal11">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate DICODING 6.jpg" alt="Programming Logic Certificate" class="certificate-img">
+            <!-- Wadhwani Group -->
+            <div class="cert-group">
+                <div class="cert-group-header">
+                    <h2 class="cert-group-title">Wadhwani</h2>
+                    <button class="see-more-btn" onclick="toggleGroup(this)">See More</button>
+                </div>
+                <div class="row">
+                    <!-- Certificate 12 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal12">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Self Presentation.jpg" alt="Self Presentation Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Self Presentation Skills</h3>
+                                <p class="certificate-text">Mastered effective self-presentation techniques including public speaking, body language, and professional communication skills.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">CodePolitan</span>
-                            <h3 class="certificate-title">Logika Pemrograman (Programming Logic 101)</h3>
-                            <p class="certificate-text">Developed strong foundation in programming logic and problem-solving. Learned algorithmic thinking, flowcharts, and basic programming constructs.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Certificate 13 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal13">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Self Management.jpg" alt="Self Management Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Self Management Skills</h3>
+                                <p class="certificate-text">Learned essential self-management skills including time management, goal setting, stress management, and personal productivity techniques.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 14 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal14">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Problem Sloving & Innovation.jpg" alt="Problem Solving & Innovation Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Problem Solving & Innovation</h3>
+                                <p class="certificate-text">Developed critical thinking and innovative problem-solving skills. Learned creative approaches to challenges and systematic problem resolution methods.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 15 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal15">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Interpersonal Skills.jpg" alt="Interpersonal Skills Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Interpersonal Skills</h3>
+                                <p class="certificate-text">Enhanced interpersonal communication and relationship-building skills. Learned effective collaboration, conflict resolution, and team dynamics.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 16 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal16">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Impactfull Writing Skills (Bahasa).jpg" alt="Impactful Writing Skills Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Impactful Writing Skills (Bahasa)</h3>
+                                <p class="certificate-text">Mastered effective writing techniques in Bahasa Indonesia. Learned persuasive writing, content creation, and impactful communication through written media.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 17 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal17">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Effective Speaking and Listening Skills (Bahasa).jpg" alt="Effective Speaking and Listening Skills Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Effective Speaking and Listening Skills (Bahasa)</h3>
+                                <p class="certificate-text">Developed advanced speaking and listening skills in Bahasa Indonesia. Learned effective verbal communication, active listening, and presentation techniques.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certificate 18 -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal18">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Professionalism (Bahasa).jpg" alt="Professionalism Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Wadhwani</span>
+                                <h3 class="certificate-title">Professionalism (Bahasa)</h3>
+                                <p class="certificate-text">Learned essential professional skills and workplace etiquette. Mastered professional communication, work ethics, and career development principles.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Certificate 12 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal12">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Self Presentation.jpg" alt="Self Presentation Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Self Presentation Skills</h3>
-                            <p class="certificate-text">Mastered effective self-presentation techniques including public speaking, body language, and professional communication skills.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
+            <!-- Unity Technologies Group -->
+            <div class="cert-group">
+                <div class="cert-group-header">
+                    <h2 class="cert-group-title">Unity Technologies</h2>
                 </div>
-
-                <!-- Certificate 13 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal13">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Self Management.jpg" alt="Self Management Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Self Management Skills</h3>
-                            <p class="certificate-text">Learned essential self-management skills including time management, goal setting, stress management, and personal productivity techniques.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 14 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal14">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Problem Sloving & Innovation.jpg" alt="Problem Solving & Innovation Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Problem Solving & Innovation</h3>
-                            <p class="certificate-text">Developed critical thinking and innovative problem-solving skills. Learned creative approaches to challenges and systematic problem resolution methods.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 15 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal15">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Interpersonal Skills.jpg" alt="Interpersonal Skills Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Interpersonal Skills</h3>
-                            <p class="certificate-text">Enhanced interpersonal communication and relationship-building skills. Learned effective collaboration, conflict resolution, and team dynamics.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 16 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal16">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Impactfull Writing Skills (Bahasa).jpg" alt="Impactful Writing Skills Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Impactful Writing Skills (Bahasa)</h3>
-                            <p class="certificate-text">Mastered effective writing techniques in Bahasa Indonesia. Learned persuasive writing, content creation, and impactful communication through written media.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 17 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal17">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Effective Speaking and Listening Skills (Bahasa).jpg" alt="Effective Speaking and Listening Skills Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Effective Speaking and Listening Skills (Bahasa)</h3>
-                            <p class="certificate-text">Developed advanced speaking and listening skills in Bahasa Indonesia. Learned effective verbal communication, active listening, and presentation techniques.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 18 -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="certificate-card" data-toggle="modal" data-target="#certificateModal18">
-                        <div class="certificate-img-container">
-                            <img src="Certificate/Certificate Professionalism (Bahasa).jpg" alt="Professionalism Certificate" class="certificate-img">
-                        </div>
-                        <div class="certificate-body">
-                            <span class="certificate-issuer">SMK Wikrama Bogor</span>
-                            <h3 class="certificate-title">Professionalism (Bahasa)</h3>
-                            <p class="certificate-text">Learned essential professional skills and workplace etiquette in Bahasa Indonesia. Mastered professional communication, work ethics, and career development principles.</p>
-                            <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal5">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Unity.png" alt="Unity Essentials Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Unity Technologies</span>
+                                <h3 class="certificate-title">Unity Essentials Pathway</h3>
+                                <p class="certificate-text">Gained fundamental knowledge of Unity game engine. Learned to create 3D environments, implement game mechanics, and understand the development workflow.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1107,6 +1228,44 @@
             </div>
         </div>
     </div>
+    <!-- Modal 19 -->
+    <div class="modal fade certificate-modal" id="certificateModal19" tabindex="-1" role="dialog" aria-labelledby="certificateModal19Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModal19Label">Belajar Back-End Pemula dengan Javascript</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="Certificate/Certificate DICODING 7.jpg" alt="Belajar Back-End Pemula dengan Javascript" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 20 -->
+    <div class="modal fade certificate-modal" id="certificateModal20" tabindex="-1" role="dialog" aria-labelledby="certificateModal20Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModal20Label">Belajar Membuat Aplikasi Web dengan React</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="Certificate/Certificate DICODING 8.jpg" alt="Belajar Membuat Aplikasi Web dengan React" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="text-center">
@@ -1198,6 +1357,32 @@
             const targetModal = $(this).data('target');
             $(targetModal).modal('show');
         });
+
+        // Toggle See More functionality
+        function toggleGroup(button) {
+            const group = button.closest('.cert-group');
+            const allItems = group.querySelectorAll('.cert-item');
+            const isExpanded = button.textContent.trim() === 'See Less';
+
+            if (!isExpanded) {
+                // Show hidden items
+                allItems.forEach((item, index) => {
+                    if (index >= 3) {
+                        item.classList.remove('hidden');
+                        item.style.animation = 'fadeIn 0.5s ease forwards';
+                    }
+                });
+                button.textContent = 'See Less';
+            } else {
+                // Hide items beyond first 3
+                allItems.forEach((item, index) => {
+                    if (index >= 3) {
+                        item.classList.add('hidden');
+                    }
+                });
+                button.textContent = 'See More';
+            }
+        }
     </script>
 </body>
 </html>
