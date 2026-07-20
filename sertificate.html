@@ -552,6 +552,21 @@
                         </div>
                     </div>
 
+                    <!-- Certificate New -->
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                        <div class="certificate-card" data-toggle="modal" data-target="#certificateModal21">
+                            <div class="certificate-img-container">
+                                <img src="Certificate/Certificate Coding Camp.jpg" alt="Coding Camp 2026 Full-Stack Web Developer Certificate" class="certificate-img">
+                            </div>
+                            <div class="certificate-body">
+                                <span class="certificate-issuer">Dicoding Indonesia</span>
+                                <h3 class="certificate-title">Coding Camp 2026 (Full-Stack Web Developer)</h3>
+                                <p class="certificate-text">Completed the Coding Camp 2026 program focused on full-stack web development, covering front-end, back-end, and modern web application development skills.</p>
+                                <button class="certificate-btn">View <i class="fas fa-chevron-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Certificate 2 -->
                     <div class="col-lg-4 col-md-6 mb-4 cert-item">
                         <div class="certificate-card" data-toggle="modal" data-target="#certificateModal2">
@@ -568,7 +583,7 @@
                     </div>
 
                     <!-- Certificate 7 -->
-                    <div class="col-lg-4 col-md-6 mb-4 cert-item">
+                    <div class="col-lg-4 col-md-6 mb-4 cert-item hidden">
                         <div class="certificate-card" data-toggle="modal" data-target="#certificateModal7">
                             <div class="certificate-img-container">
                                 <img src="Certificate/Certificate DICODING 3.jpg" alt="Financial Literacy Certificate" class="certificate-img">
@@ -872,12 +887,24 @@
         </div>
     </section>
 
-    <!-- Certificate Modals - All modals remain same as original for brevity, included but edited for space -->
-    <!-- (Modal sections unchanged functionally) -->
-    <div class="modal fade certificate-modal" id="certificateModal1" tabindex="-1" role="dialog" aria-labelledby="certificateModal1Label" aria-hidden="true"><div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Belajar Dasar Pemrograman Web</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body text-center"><img src="Certificate/Certificate DICODING.png" class="img-fluid"></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>
-    <!-- To keep code efficient but functional we have all modals in original version, they remain working -->
-    <div class="modal fade certificate-modal" id="certificateModal2" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Belajar Prinsip Pemrograman SOLID</h5><button type="button" class="close" data-dismiss="modal">&times;</button></div><div class="modal-body text-center"><img src="Certificate/Certificate DICODING 2.png" class="img-fluid"></div><div class="modal-footer"><button class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>
-    <!-- Additional modals exist but omitted from snippet for length, they work exactly as before -->
+    <div class="modal fade certificate-modal" id="certificateModal" tabindex="-1" role="dialog" aria-labelledby="certificateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="certificateModalLabel">Certificate Preview</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img id="certificateModalImage" src="" alt="Certificate preview" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="text-center">
@@ -916,20 +943,48 @@
         // Toggle See More functionality
         function toggleGroup(button) {
             const group = button.closest('.cert-group');
-            const allItems = group.querySelectorAll('.cert-item');
+            const allItems = Array.from(group.querySelectorAll('.cert-item'));
             const isExpanded = button.textContent.trim() === 'See Less';
-            allItems.forEach((item, index) => {
-                if (index >= 3) {
-                    if (!isExpanded) {
-                        item.classList.remove('hidden');
-                        item.style.animation = 'fadeIn 0.5s ease forwards';
-                    } else {
-                        item.classList.add('hidden');
-                    }
+            const hiddenItems = allItems.slice(3);
+
+            hiddenItems.forEach((item) => {
+                if (!isExpanded) {
+                    item.classList.remove('hidden');
+                    item.style.animation = 'fadeIn 0.5s ease forwards';
+                } else {
+                    item.classList.add('hidden');
                 }
             });
+
             button.textContent = isExpanded ? 'See More' : 'See Less';
+
+            if (!isExpanded) {
+                const firstHiddenItem = hiddenItems.find((item) => !item.classList.contains('hidden'));
+                if (firstHiddenItem) {
+                    setTimeout(() => {
+                        firstHiddenItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 150);
+                }
+            }
         }
+
+        document.addEventListener('click', function (event) {
+            const card = event.target.closest('.certificate-card');
+            if (!card) return;
+
+            const modal = document.getElementById('certificateModal');
+            const modalTitle = document.getElementById('certificateModalLabel');
+            const modalImage = document.getElementById('certificateModalImage');
+            const image = card.querySelector('.certificate-img');
+            const title = card.querySelector('.certificate-title');
+
+            if (!modal || !modalTitle || !modalImage || !image || !title) return;
+
+            modalTitle.textContent = title.textContent.trim();
+            modalImage.src = image.src;
+            modalImage.alt = image.alt || title.textContent.trim();
+            $('#certificateModal').modal('show');
+        });
     </script>
 </body>
 </html>
